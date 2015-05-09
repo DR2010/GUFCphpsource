@@ -153,6 +153,7 @@ function listGames( $refereeselected )
 				ORDER BY round.date, time
 				";
 					
+					
 		$r_queryinner = $mysqli->query($sqlinner);
 
 		$todays_date = date("Y-m-d");						
