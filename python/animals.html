@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animals</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script src="js/scripts.js"></script>
+	<script type="text/javascript"> 
+
+function stopRKey(evt) { 
+  var evt = (evt) ? evt : ((event) ? event : null); 
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+} 
+
+document.onkeypress = stopRKey; 
+
+</script>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Categories</a></li>
+          <li><a href="animals.html">Animals</a></li>
+        </li>
+      </ul>
+    </nav>
+	<form >
+    <label>
+      Animals:
+      <input id="new-animal-input" type="text" placeholder="E.g. Dogs">
+    </label>
+    <button type="button" id="add-animal-button">
+      Add Animal
+    </button>
+    <label>
+  <input id="small-size" type="checkbox" name="size" value="Small">Small<br>
+  </label>
+  <label>
+  <input id="medium-size" type="checkbox" name="size" value="Medium">Medium<br>
+  <label>
+  <input id="large-size" type="checkbox" name="size" value="Large">Large<br>
+  </label>
+</form>
+  <ul id="animal-container">
+  </ul>
+  <!--mainForm-->
+ <script>
+    var addAnimalButton = document.getElementById("add-animal-button");
+    var newAnimalInput = document.getElementById("new-animal-input");
+    var animalContainer = document.getElementById("animal-container");
+
+    addAnimalButton.addEventListener('click', function(event) {
+      var animalName = newAnimalInput.value;
+      newAnimalInput.value = "";
+      animalContainer.insertAdjacentHTML('afterbegin', "<li>" + animalName + "</li>");
+    });
+    
+    newAnimalInput.addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      var animalName = newAnimalInput.value;
+      newAnimalInput.value = "";
+      animalContainer.insertAdjacentHTML('afterbegin', "<li>" + animalName + "</li>");
+    }});
+  </script>
+  <script>
+  //Defining a listener for our button, specifically, an onclick handler
+document.getElementById("add").onclick = function() {
+    //First things first, we need our text:
+    var text = document.getElementById("new-animal-input").value; //.value gets input values
+
+    //Now construct a quick list element
+    var li = "<li>" + text + "</li>";
+
+    //Now use appendChild and add it to the list!
+    document.getElementById("listAnimals").appendChild(li);
+}
+</script>
+        <script>
+        $("#jsGrid").jsGrid({
+    width: "100%",
+    height: "400px",
+ 
+    filtering: true,
+    editing: true,
+    sorting: true,
+    paging: true,
+ 
+    data: db.clients,
+ 
+    fields: [
+        { newAnimalInput: "Name", type: "text", width: 150 },
+        { newAnimalInput: "Age", type: "number", width: 50 },
+        { newAnimalInput: "Address", type: "text", width: 200 },
+        { type: "control" }
+    ]
+});
+</script>
+  </body>
+</html>

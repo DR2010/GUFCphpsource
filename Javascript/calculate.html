@@ -1,0 +1,116 @@
+<html>
+
+	<head>
+		<title>JavaScript Loan Calculator</title>
+		<style>
+			/* This is a CSS style sheet: it adds style to the program output */
+
+			.result {
+				font-weight: bold;
+			}
+			/* For elements with class="result" */
+
+			#payment {
+				text-decoration: underline;
+			}
+			/* For element with id="payment" */
+		</style>
+	</head>
+
+<body>
+		<script language="JavaScript">
+		
+		function showmsg()
+		{
+			alert("Hey !");
+			
+		}
+
+		function calculate() 
+		{ 
+			alert('You clicked the button X');
+			
+			// Get the user's input from the form. Assume it is all valid. 
+			// Convert interest from a percentage to a decimal, and convert from 
+			// an annual rate to a monthly rate. Convert payment period in years 
+			// to the number of monthly payments. 
+			var principal = document.loandata.principal.value; 
+			var interest = document.loandata.interest.value / 100 / 12;
+			var payments = document.loandata.years.value * 12; 
+			
+			// Now compute the monthly payment figure, using esoteric math. 
+			var x = Math.pow(1 + interest, payments); 
+			var monthly = (principal*interest)/(x-1); 
+		
+			// Get named <span> elements from the form. 
+			var payment = document.getElementById("payment"); 
+			var total = document.getElementById("total"); 
+			var totalinterest = document.getElementById("totalinterest"); 
+			// Check that the result is a finite number. If so, display the 
+			// results by setting the HTML content of each <span> element. 
+			
+			if (isFinite(monthly)) { 
+				payment.innerHTML = monthly.toFixed(2); 
+				total.innerHTML = (monthly * payments).toFixed(2); 
+				totalinterest.innerHTML = ((monthly*payments)-principal).toFixed(2); 
+			} 
+			// Otherwise, the user's input was probably invalid, so display nothing. 
+			else 
+			{ 
+				payment.innerHTML = ""; 
+				total.innerHTML = "" totalinterest.innerHTML = ""; 
+			} 
+		}
+	</script>
+
+	
+	<form name="loandata">
+		<table>
+			<tr>
+				<td><b>Enter Loan Information:</b></td>
+			</tr>
+			<tr>
+				<td>1) Amount of the loan (any currency):</td>
+				<td>
+					<input type="text" name="principal" onchange="calculate();">
+				</td>
+			</tr>
+			<tr>
+				<td>2) Annual percentage rate of interest:</td>
+				<td>
+					<input type="text" name="interest" onchange="calculate();">
+				</td>
+			</tr>
+			<tr>
+				<td>3) Repayment period in years:</td>
+				<td>
+					<input type="text" name="years" onchange="calculate();">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" value="Compute" onclick="showmsg()">
+				</td>
+			</tr>
+			<tr>
+				<td><b>Payment Information:</b></td>
+			</tr>
+			<tr>
+				<td>4) Your monthly payment:</td>
+				<td>$<span class="result" id="payment"></span></td>
+			</tr>
+			<tr>
+				<td>5) Your total payment:</td>
+				<td>$<span class="result" id="total"></span></td>
+			</tr>
+			<tr>
+				<td>6) Your total interest payments:</td>
+				<td>$<span class="result" id="totalinterest"></span></td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+
+</html>

@@ -19,12 +19,6 @@
 	$db_password = 'deve!oper';
 	$db_database = 'gufcweb_player';
 
-	// Ubuntu Hyper V
-	// $db_hostname = '192.168.1.12:3306';
-	// $db_username = 'danielgufc_user';
-	// $db_password = 'danielgufc_password';
-	// $db_database = 'gufcdraws';
-
 	$mysqli = new mysqli($db_hostname,$db_username,$db_password, $db_database);
 
 	/* check connection */
@@ -42,9 +36,10 @@
 			function reload(form)
 			{
 				var val=document.getElementById('searchDate'); 
-				// window.alert(" Date... " + val.value);
-				self.location='?page_id=168&dategame=' + val.value ;
-				// self.location='?page_id=247&dategame=' + val.value ;
+				var location=document.getElementById('location'); 
+//				window.alert(" Date... " + val.value);
+//				window.alert(" Date... " + location.value);
+				self.location = '?page_id=168&dategame=' + val.value +'&location=' + location.value ;
 			}
 
 		</script>        
@@ -83,6 +78,7 @@
 
     	<?php
 			@$dategame=$_GET['dategame']; 
+			@$location=$_GET['location']; 
 
 			echo "<form method='POST' name='formname' action=''>";
 			echo '<br>';
@@ -90,12 +86,24 @@
 			echo '<p/>';
 			echo "<input type='date' name='dategame' id='searchDate' value='".$dategame."' id=\"searchDate\">";
 			echo '<p/>';
+			echo 'Location:';
+			echo '<p/>';
+			echo '<label>';
+			echo "<select name='location' id='location'>";
+			echo '<Option value="">Select...</option>';
+			echo '<Option value="Harrison">All Games in Harrison</option>';
+			echo '<Option value="Away">U8 U9 GUFC Teams Not Playing in Harrison</option>';
+			echo '<Option value="AllGames">All Games</option>';
+			echo '</select>';
+			echo '</label>';
+			echo '<p/>';
+
 			echo "<input type='button' value='Submit' onclick=\"reload(this.form)\">";
 			echo "</form>";
 			
  			if (! $dategame == "")
 			{
-				listGames( $dategame ); 
+				listGames( $dategame, $location ); 
 			}
 		
 		?>
@@ -111,7 +119,7 @@ get_footer();
 
 <?php
 
-function listGames( $dategame )
+function listGames( $dategame, $location )
 {
 
 		$db_hostname = 'gungahlinunitedfc.org.au';
@@ -125,6 +133,16 @@ function listGames( $dategame )
 		// $db_database = 'gufcdraws';
     	$mysqli = new mysqli($db_hostname,$db_username,$db_password, $db_database);
 		
+		$criteria = '';
+		if ( $location == 'Harrison')
+		{
+			$criteria = ' and groundplace.idgroundplace = "HARRISON" ';
+		}
+		if ( $location == 'Away')
+		{
+			$criteria = ' and groundplace.idgroundplace != "HARRISON" and game.fkawayteamid like "%Gungahlin%" ';
+		}
+		
 		$sqlinner = "
 					SELECT 
 					 game.gameid 
@@ -136,6 +154,7 @@ function listGames( $dategame )
 					,game.referee   referee
 					,game.homejob   homejob
 					,game.time      time
+					,game.seqnum      seqnum
 					,round.idround          idround
 					,round.date             rounddate
 					,groundplace.navigate   gpnavigate
@@ -148,7 +167,8 @@ function listGames( $dategame )
 				   AND game.fkroundid = round.idround 
 				   AND game.fkfieldid = harrisonsfieldschema.fieldid
 				   AND round.date = '".$dategame."'
-				ORDER BY game.time, game.fkagegroupid, fieldid 
+				   ".$criteria."
+				ORDER BY game.time, seqnum, game.fkagegroupid, fieldid 
 				";
 					
 		$r_queryinner = $mysqli->query($sqlinner);
@@ -168,7 +188,7 @@ function listGames( $dategame )
 			{	
 				$currentage = $rowinner['fkagegroupid'];
 
-				if  ( strpos($currentage, 'Girls Miniroos') !== false )	{ $currentage = 'Girls Miniroos';  }
+				if  ( strpos($currentage, 'Girls MiniRoos') !== false )	{ $currentage = 'Girls MiniRoos';  }
 				elseif ( strpos($currentage, 'U5'            ) !== false) { $currentage = 'UNDER 5';       } 
 				elseif ( strpos($currentage, 'U6'            ) !== false) { $currentage = 'UNDER 6';       } 
 				elseif ( strpos($currentage, 'U7'            ) !== false) { $currentage = 'UNDER 7';       } 
@@ -190,8 +210,8 @@ function listGames( $dategame )
 
      				echo '<h1>'.$currentage.'</h1>';
 
-					echo '<table class="table" align="center" border="1" >';
-					echo "\n";
+					echo '<table class="rwd-table" align="center" border="1" >';
+					echo '<tr>';
 					echo '<th>Time</th>';
 					echo '<th>Field</th>';
 					echo '<th>Home</th>';
@@ -202,8 +222,8 @@ function listGames( $dategame )
 					echo '<th>Round</th>';
 					echo '<th>Home Job</th>';
 					echo '<th>Ground Address</th>';
-					echo "\n";
-				}					
+					echo '</tr>';
+				}
 		
 				echo "\n";
 				echo '<tr>';

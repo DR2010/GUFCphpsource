@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Categories</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="animals.html">Animals</a></li>
+      </ul>
+    </nav>
+    <div id="idclasstags" class="tags" onclick="changeText(this)">
+    	<ul class="tagList1">
+    		<input type="radio" id="r1_small" name="radSize" rel="small"/> Small
+    		<input type="radio" id="r1_medium" name="radSize" rel="medium"/> Medium
+    		<input type="radio" id="r1_large" name="radSize" rel="large"/> Large
+        </ul>
+        <ul id="idclasstags2" class="tagList2" onclick="changeText(this)">
+    		<input type="radio" id="r2_sea" name="radSpace" rel="sea"/> Sea
+    		<input type="radio" id="r2_land" name="radSpace" rel="land"/> Land
+    		<input type="radio" id="r2_air" name="radSpace" rel="air"/> Air
+        </ul>
+    </div>
+    <ul class = "filterAnimalsSize" id="animalList">
+    	<li class="small - land">Mouse</li>
+        <li class="medium - air">Pelican</li>
+    	<li class="small - air">Magpie</li>
+    	<li class="medium - land">Bear</li>
+    	<li class="large - land">Elephant</li>
+    	<li class="small - sea">Goldfish</li>
+    	<li class="medium - land">Kangaroo</li>
+    	<li class="large - sea">Blue Whale</li>
+    	<li class="small - land">Cat</li>
+    	<li class="small - land">Tony Abbott</li>
+    </ul>
+  </body>
+</html>
+
+<script>
+    function changeText(id) 
+    { 
+
+        var size = "";
+        // 
+        if (document.getElementById('r1_small').checked) {
+             rate_value = document.getElementById('r1_small').value;
+             size = "small";
+        }
+        if (document.getElementById('r1_medium').checked) {
+             rate_value = document.getElementById('r1_medium').value;
+             size = "medium";
+        }
+        if (document.getElementById('r1_large').checked) {
+             rate_value = document.getElementById('r1_large').value;
+             size = "large";
+        }
+        
+        var type = "";
+        // 
+        if (document.getElementById('r2_sea').checked) {
+             rate_value = document.getElementById('r2_sea').value;
+             type = "sea";
+        }
+        if (document.getElementById('r2_land').checked) {
+             rate_value = document.getElementById('r2_land').value;
+             type = "land";
+        }
+        if (document.getElementById('r2_air').checked) {
+             rate_value = document.getElementById('r2_air').value;
+             type = "air";
+        }
+        
+        // alert("size = "+ size + "  type = " + type);
+
+        // now I know type and size
+        // I need to filter the list
+        
+        var ul = document.getElementById("animalList");
+        var items = ul.getElementsByTagName("li");
+
+        for (var i = 0; i < items.length; ++i) {
+            $(items[i]).hide();
+        }
+        for (var i = 0; i < items.length; ++i) {
+
+            if ( items[i].className.indexOf(size) > -1 && items[i].className.indexOf(type) > -1)
+            {
+            //    alert (items[i].className );
+               $(items[i]).show();
+            }    
+
+        }
+    }
+</script>

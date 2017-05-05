@@ -1,0 +1,78 @@
+16/05/2015
+
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Open U10 Black', 'Open U10 Black');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Girls U11 White', 'Girls U11 White');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Open U11 Yellow', 'Open U11 Yellow');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Open U11 Blue', 'Open U11 Blue');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Open U13 Division 2 Gold', 'Open U13 Division 2 Gold');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Mens Division 4', 'Mens Division 4');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Girls U12 Division 2', 'Girls U12 Division 2');
+INSERT INTO `agegroup` (`idagegroup`, `description`) VALUES ('Girls U14 Division 2', 'Girls U14 Division 2');
+INSERT INTO `agegroup` (`idagegroup`, `description`, `showindropdown`) VALUES ('Open U18 Division 1', 'Open U18 Division 1', '');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 Blue', 'Gungahlin Warriors', 'Gungahlin Warriors', 'Y');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 White', 'Gungahlin Storm', 'Gungahlin Storm', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 White', 'Gungahlin Sharks', 'Gungahlin Sharks', 'Y');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 Red', 'Gungahlin Blizzard', 'Gungahlin Blizzard', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`) VALUES ('Open U10 Red', 'Canberra Grammar School', 'Canberra Grammar School');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 Green', 'Gungahlin Roar', 'Gungahlin Roar', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 Green', 'Canberra FC', 'Canberra FC', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 Black', 'Gungahlin United Falcons', 'Gungahlin United Falcons', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U10 Black', 'Woden Valley Lightning', 'Woden Valley Lightning', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U11 White', 'Gungahlin Great Whites', 'Gungahlin Great Whites', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U11 White', 'Canberra Girls Grammar School', 'Canberra Girls Grammar School', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Yellow', 'Gungahlin Glory', 'Gungahlin Glory', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Yellow', 'Woden Valley Wanderers', 'Woden Valley Wanderers', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Blue', 'Gungahlin Fury', 'Gungahlin Fury', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Blue', 'Weston Molonglo Jaguars', 'Weston Molonglo Jaguars', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Red', 'Gungahlin Gladiators', 'Gungahlin Gladiators', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Red', 'Belnorth Strikers', 'Belnorth Strikers', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 White', 'Belnorth Strikers', 'Belnorth Strikers', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U11 Black', 'Majura Blades', 'Majura Blades', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U13 Division 2 Gold', 'Gungahlin United FC', 'Gungahlin United FC', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U13 Division 2 Gold', 'Brindabella Blues FC', 'Brindabella Blues FC', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Mens Division 4', 'Gungahlin United - Div 4', 'Gungahlin United - Div 4', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Mens Division 4', 'Brindabella - Div 4', 'Brindabella - Div 4', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 1', 'Woden Valley United', 'Woden Valley United', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 3 Blue', 'Belnorth Strikers', 'Belnorth Strikers', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 2 Gold', 'Gungahlin Cyclones', 'Gungahlin Cyclones', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 2 Gold', 'Weston Molonglo Tigers', 'Weston Molonglo Tigers', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U12 Division 2', 'Gungahlin United FC', 'Gungahlin United FC', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U12 Division 2', 'Canberra Girls Grammar School', 'Canberra Girls Grammar School', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 3 Gold', 'Gungahlin Storm', 'Gungahlin Storm', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 3 Gold', 'Belnorth Devils', 'Belnorth Devils', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U14 Division 2', 'Gungahlin United FC - Div 3', 'Gungahlin United FC - Div 3', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U14 Division 2', 'Belnorth FC', 'Belnorth FC', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U15 Division 3', 'Gungahlin United FC Blue', 'Gungahlin United FC Blue', 'Y');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U16 Division 1', 'NTC', 'NTC', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Girls U16 Division 2', 'Weston Molonglo FC', 'Weston Molonglo FC', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U18 Division 1', 'Gungahlin United FC', 'Gungahlin United FC', 'Y');
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U18 Division 1', 'Woden Valley Eagles', 'Woden Valley Eagles', 'N');
+
+INSERT INTO `team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U13 Division 1', 'Goulburn Strikers', 'Goulburn Strikers', 'N');
+
+INSERT INTO `gufcdraws`.`team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 2 Gold', 'Gungahlin Cyclones', 'Gungahlin Cyclones', 'Y');
+INSERT INTO `gufcdraws`.`team` (`fkagegroupid`, `idteam`, `name`, `IsGungahlinTeam`) VALUES ('Open U12 Division 2 Gold', 'Weston Molonglo Tigers', 'Weston Molonglo Tigers', 'N');
+

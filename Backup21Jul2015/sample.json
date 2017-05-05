@@ -1,0 +1,45 @@
+<?php
+    $arr = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+
+    echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}
+?>
+
+{
+"<gameid>k__BackingField":"OVER100098",
+"<matchid>k__BackingField":null,
+"<date>k__BackingField":null,
+"<time>k__BackingField":null,
+"<fkfieldid>k__BackingField":"3AB",
+"<fkhometeamid>k__BackingField":null,
+"<fkawayteamid>k__BackingField":null,
+"<fkagegroupid>k__BackingField":null,
+"<homejob>k__BackingField":"Get larger crossbars",
+"<referee>k__BackingField":"C. PRESTON",
+"<fkroundid>k__BackingField":null,
+"<fkgroundplaceid>k__BackingField":null,
+"<homescore>k__BackingField":null,
+"<awayscore>k__BackingField":null,
+"<week>k__BackingField":null,
+"<reportsection>k__BackingField":null,
+"<seqnum>k__BackingField":0
+}
+
+{
+"gameid":"OVER100098",
+"matchid":null,
+"date":null,
+"time":null,
+"fkfieldid":"3AB",
+"fkhometeamid":null,
+"fkawayteamid":null,
+"fkagegroupid":null,
+"homejob":"Get larger crossbars",
+"referee":"C. PRESTON",
+"fkroundid":null,
+"fkgroundplaceid":null,
+"homescore":null,
+"awayscore":null,
+"week":null,
+"reportsection":null,
+"seqnum":0
+}
